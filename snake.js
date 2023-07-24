@@ -9,6 +9,10 @@ var context;
 var snakeX = blockSize * 5;
 var snakeY = blockSize * 5;
 
+//create food
+var snakeFoodX = blockSize * 10;
+var snakeFoodY = blockSize * 10;
+
 
 
 window.onload = function(){
@@ -28,5 +32,8 @@ function update(){
 
     context.fillStyle = "#4cd137";  //create snake
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
+
+    context.fillStyle = "#fbc531";  //create food
+    context.fillRect( snakeFoodX, snakeFoodY, blockSize, blockSize);
 
 }
