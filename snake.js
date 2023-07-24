@@ -13,6 +13,9 @@ var snakeY = blockSize * 5;
 var speadX = 0;
 var speadY = 0;
 
+//sanke body
+var snakeBody = [];
+
 //create food
 var snakeFoodX;
 var snakeFoodY;
@@ -40,14 +43,26 @@ function update(){
     context.fillRect( snakeFoodX, snakeFoodY, blockSize, blockSize);
 
     if(snakeX == snakeFoodX && snakeY == snakeFoodY){
+        snakeBody.push([snakeFoodX, snakeFoodY]);
         placeFood();
     }
 
+    for (let i = snakeBody.length-1; i>0; i--){  //sanke body
+        snakeBody[i] = snakeBody[i-1];
+    }
+
+    if (snakeBody.length){
+        snakeBody[0] = [snakeX, snakeY];
+    }
 
     context.fillStyle = "#4cd137";  //create snake
-    context.fillRect(snakeX, snakeY, blockSize, blockSize);
     snakeX += speadX * blockSize;
     snakeY += speadY * blockSize;
+    context.fillRect(snakeX, snakeY, blockSize, blockSize);
+
+    for (let i = 0; i< snakeBody.length; i++){  //sanke body
+        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize); 
+    }
 
 }
 
