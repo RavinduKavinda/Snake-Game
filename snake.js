@@ -5,8 +5,14 @@ var columns = 25;
 var snakeBoard;
 var context;
 
+//create snake
+var snakeX = blockSize * 5;
+var snakeY = blockSize * 5;
+
+
+
 window.onload = function(){
-    snakeBoard = document.getElementById("snakeBoard");
+    snakeBoard = document.getElementById("snakeBoard"); //create board
     snakeBoard.height = rows * blockSize;
     snakeBoard.width = columns * blockSize;
     context = snakeBoard.getContext("2d");
@@ -14,7 +20,13 @@ window.onload = function(){
     update();
 }
 
+
+
 function update(){
-    context.fillStyle= "#2c3e50";
+    context.fillStyle= "#2c3e50";  //create board
     context.fillRect(0, 0, snakeBoard.height, snakeBoard.width);
+
+    context.fillStyle = "#4cd137";  //create snake
+    context.fillRect(snakeX, snakeY, blockSize, blockSize);
+
 }
