@@ -53,19 +53,19 @@ function update(){
 
 
 function directionChange(p) {
-    if(p.code == "ArrowUp"){
+    if(p.code == "ArrowUp" && speadY != 1){
         speadX = 0;
         speadY = -1;
     }
-    else if (p.code == "ArrowDown"){
+    else if (p.code == "ArrowDown" && speadY != -1){
         speadX = 0;
         speadY = 1;
     }
-    else if (p.code == "ArrowLeft"){
+    else if (p.code == "ArrowLeft" && speadX != 1){
         speadX = -1;
         speadY = 0;
     }
-    else if (p.code == "ArrowRight"){
+    else if (p.code == "ArrowRight" && speadX != -1){
         speadX = 1;
         speadY = 0;
     }
