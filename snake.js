@@ -20,6 +20,8 @@ var snakeBody = [];
 var snakeFoodX;
 var snakeFoodY;
 
+//finish
+var gameOver = false;
 
 
 window.onload = function(){
@@ -62,6 +64,23 @@ function update(){
 
     for (let i = 0; i< snakeBody.length; i++){  //sanke body
         context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize); 
+    }
+
+    //game over
+    if (gameOver){
+        return;
+    }
+
+    if (snakeX < 0 || snakeX > columns * blockSize || snakeY < 0 || snakeY > rows * blockSize){
+        gameOver = true;
+        alert("Game Over");
+    }
+
+    for (let i = 0; i < snakeBody.length; i++){
+        if(snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]){
+            gameOver = true;
+            alert("Game Over");
+        }
     }
 
 }
