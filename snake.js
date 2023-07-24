@@ -36,13 +36,18 @@ function update(){
     context.fillStyle= "#2c3e50";  //create board
     context.fillRect(0, 0, snakeBoard.height, snakeBoard.width);
 
+    context.fillStyle = "#fbc531";  //create food
+    context.fillRect( snakeFoodX, snakeFoodY, blockSize, blockSize);
+
+    if(snakeX == snakeFoodX && snakeY == snakeFoodY){
+        placeFood();
+    }
+
+
     context.fillStyle = "#4cd137";  //create snake
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
     snakeX += speadX * blockSize;
     snakeY += speadY * blockSize;
-
-    context.fillStyle = "#fbc531";  //create food
-    context.fillRect( snakeFoodX, snakeFoodY, blockSize, blockSize);
 
 }
 
