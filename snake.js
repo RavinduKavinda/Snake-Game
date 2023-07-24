@@ -10,8 +10,8 @@ var snakeX = blockSize * 5;
 var snakeY = blockSize * 5;
 
 //create food
-var snakeFoodX = blockSize * 10;
-var snakeFoodY = blockSize * 10;
+var snakeFoodX;
+var snakeFoodY;
 
 
 
@@ -21,6 +21,7 @@ window.onload = function(){
     snakeBoard.width = columns * blockSize;
     context = snakeBoard.getContext("2d");
 
+    placeFood()
     update();
 }
 
@@ -35,5 +36,11 @@ function update(){
 
     context.fillStyle = "#fbc531";  //create food
     context.fillRect( snakeFoodX, snakeFoodY, blockSize, blockSize);
+
+}
+
+function placeFood(){
+    snakeFoodX = Math.floor(Math.random() * columns) * blockSize;
+    snakeFoodY = Math.floor(Math.random() * rows) * blockSize;
 
 }
